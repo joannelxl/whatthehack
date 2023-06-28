@@ -1,0 +1,135 @@
+.localsementicsearchpage-content {
+  height: 100vh;
+  margin-left: 15%;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 9fr 3fr;
+  grid-template-areas: "s" "k" "l" "p" "z";
+}
+
+.localsementicsearchpage-top-bar {
+  grid-row: s;
+  width: 100%;
+  top: 0;
+  background-color: #00a67e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.localsementicsearchpage-area {
+  grid-row: k;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.select-func-area {
+  grid-row: l;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.localsementicsearchpage-scroll-box {
+  grid-row: p;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.localsementicsearchpage-chatbox-area {
+  grid-row: z;
+  width: 100%;
+  bottom: 0;
+}
+
+.btn-group {
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-group button {
+  background-color: none;
+  border: 2px solid white;
+  padding: 5px 10px;
+  border-radius: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-icon {
+  fill: white;
+  padding-right: 8px;
+  height: 25px;
+}
+
+.btn-text {
+  color: white;
+  font-size: small;
+}
+
+.select-btn {
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-text {
+  color: white;
+  font-size: small;
+  margin-right: 10px;
+}
+
+.regenerate-btn-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.regenerate-btn {
+  border: 1px solid blue;
+  display: inline-flex;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  } */
+
+/* .input-area {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px #00000019;
+    height: 100px;
+    width: 95%;
+    display: grid;
+    grid-template-columns: 19fr 1fr;
+  } */
+
+/* .progress-bar {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 20;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+  } */
+
+/*
+  .input-textbox {
+  
+  } */
