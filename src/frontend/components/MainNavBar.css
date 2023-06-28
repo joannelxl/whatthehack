@@ -1,0 +1,88 @@
+.sidebar {
+  height: 100%;
+  width: 15%;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.main-logo-area {
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  height: 30%;
+  width: 70%;
+}
+
+.sidebar-list {
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar-list .row {
+  width: 100%;
+  height: 75px;
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidebar-list .special-row {
+  width: 100%;
+  height: 75px;
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidebar-list #active {
+  background-color: #00a67f7c;
+}
+
+.sidebar-list .row:hover {
+  cursor: pointer;
+  background-color: #00a67f42;
+}
+
+.sidebar-list .special-row:hover {
+  background-color: #000000;
+}
+
+.row #icon {
+  flex: 30%;
+  display: grid;
+  height: 2em;
+  justify-content: right;
+}
+
+.row #title {
+  flex: 70%;
+  font-size: medium;
+  color: white;
+}
+
+.special-row #title {
+  display: flex;
+  font-size: medium;
+  color: rgb(82, 209, 182);
+  justify-self: center;
+}
+
+.svg-icon {
+  fill: white;
+  height: 2em;
+}
