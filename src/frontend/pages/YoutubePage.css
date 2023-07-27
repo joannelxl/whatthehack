@@ -1,0 +1,70 @@
+.youtubepage-content {
+  height: 100vh;
+  position: relative;
+  margin-left: 15%;
+  display: grid;
+  grid-template-rows: 1fr 13fr;
+  grid-template-areas:
+    "i"
+    "o";
+}
+
+.youtube-top-bar {
+  grid-row: i;
+  width: 100%;
+  top: 0;
+  background-color: #00a67e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.youtube-main-content {
+  grid-row: o;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-group button {
+  background-color: none;
+  border: 2px solid white;
+  padding: 5px 10px;
+  border-radius: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-icon {
+  fill: white;
+  padding-right: 8px;
+  height: 25px;
+}
+
+.btn-text {
+  color: white;
+  font-size: small;
+}
+
+.select-whisper-btn {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.select-text {
+  color: white;
+  font-size: small;
+  margin-right: 10px;
+}

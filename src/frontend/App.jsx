@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import React from "react";
 import MainNavBar from "./components/MainNavBar";
-import URLQueryPage from "./pages/URLQueryPage";
+import UrlFunctionQueryPage from "./pages/UrlFunctionQueryPage";
 import LocalSementicSearchPage from "./pages/LocalSementicSearchPage";
+import YoutubePage from "./pages/YoutubePage";
 import HomePage from "./pages/HomePage";
 
 function App() {
@@ -11,12 +12,13 @@ function App() {
       <BrowserRouter>
         <MainNavBar />
         <Routes>
-          <Route path="/home/" element={<HomePage />} />
-          <Route path="/urlquery/" element={<URLQueryPage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/urlquery" element={<UrlFunctionQueryPage />} />
           <Route
-            path="/localsementicsearch/"
+            path="/localsementicsearch"
             element={<LocalSementicSearchPage />}
           />
+          <Route path="/youtube" element={<YoutubePage />} />
         </Routes>
       </BrowserRouter>
     </div>
