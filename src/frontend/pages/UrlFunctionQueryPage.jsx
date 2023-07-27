@@ -73,23 +73,19 @@ function UrlFunctionQueryPage() {
   // upon url submission
   function handleRun(e) {
     e.preventDefault();
-    submitQuery(
-      `https://dxclnvmonline2.eastus.cloudapp.azure.com:8080/${func.value}`,
-      {
-        url: url,
-        user: user,
-        model: selectedModel.value,
-        language: updatedLanguage,
-        headers: {
-          "Access-Control-Allow-Headers": "Content-Type",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin":
-            "https://polite-mud-0e3eb4d10.2.azurestaticapps.net",
-          "Access-Control-Allow-Credentials": "true",
-          "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-        },
-      }
-    );
+    submitQuery(`http://localhost:5000/${func.value}`, {
+      url: url,
+      user: user,
+      model: selectedModel.value,
+      language: updatedLanguage,
+      headers: {
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "http://localhost:5173",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+      },
+    });
     setLoadingStatus(true);
   }
 

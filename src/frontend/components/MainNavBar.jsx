@@ -14,19 +14,16 @@ function MainNavBar() {
           return (
             <li
               key={key}
-              className={
-                val.title == "BETA (under development)" ? "special-row" : "row"
-              }
+              className="row"
               id={
-                window.location.pathname.split("/").slice(-2)[0] == val.link
+                // set different colour for currently active page
+                window.location.pathname.split("/").pop == val.link
                   ? "active"
                   : ""
               }
               onClick={() => {
-                let pagePath = "/" + val.link;
-                let userPath = "/" + window.location.pathname.split("/").pop();
-                let newPath = pagePath.concat(userPath);
-                window.location.pathname = newPath;
+                let pagePath = "/" + val.link; // path to selected page
+                window.location.pathname = pagePath;
               }}
             >
               <div id="icon"> {val.icon} </div>

@@ -1,6 +1,7 @@
 .sidebar {
   height: 100%;
   width: 15%;
+  overflow-y: scroll;
   background-color: black;
   position: fixed;
   top: 0;
@@ -50,7 +51,7 @@
 }
 
 .sidebar-list #active {
-  background-color: #00a67f7c;
+  background-color: #00a67faa;
 }
 
 .sidebar-list .row:hover {
@@ -63,14 +64,14 @@
 }
 
 .row #icon {
-  flex: 30%;
+  flex: 22%;
   display: grid;
   height: 2em;
   justify-content: right;
 }
 
 .row #title {
-  flex: 70%;
+  flex:78%;
   font-size: medium;
   color: white;
 }
@@ -78,7 +79,7 @@
 .special-row #title {
   display: flex;
   font-size: medium;
-  color: rgb(82, 209, 182);
+  color: #FFFFFF;
   justify-self: center;
 }
 

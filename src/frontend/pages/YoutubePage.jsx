@@ -39,22 +39,18 @@ function YoutubePage() {
   // upon submission of url
   function handleRun(e) {
     e.preventDefault();
-    submitQuery(
-      "https://dxclnvmonline2.eastus.cloudapp.azure.com:8080/youtube",
-      {
-        url: url,
-        user: user,
-        model: selectedModel.value,
-        headers: {
-          "Access-Control-Allow-Headers": "Content-Type",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Credentials": "true",
-          "Access-Control-Allow-Origin":
-            "https://polite-mud-0e3eb4d10.2.azurestaticapps.net",
-          "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-        },
-      }
-    );
+    submitQuery("http://localhost:5000/youtube", {
+      url: url,
+      user: user,
+      model: selectedModel.value,
+      headers: {
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Origin": "http://localhost:5173",
+        "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+      },
+    });
     setLoadingStatus(true);
   }
 
