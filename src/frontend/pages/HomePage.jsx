@@ -5,7 +5,7 @@ import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from "@chatscope/chat-ui-kit-react"
 
 
-const API_KEY = ""
+const API_KEY = "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"
 //role: "user" -> a mesage from the user, "assistant" -> a response from chatGPT
 const systemMessage = {
   role: "system",
