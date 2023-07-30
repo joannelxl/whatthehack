@@ -42,21 +42,12 @@ def summarize_webpage():
 
     # set api key, api base and deployment based on user
 
-    openai.api_key = "cfd349e9242e4495bad6aa347a16b0c9"
-    openai.api_base = "https://chatbotapi1.openai.azure.com"
-    if model == "gpt-35":
-        deployment = "chatgptapi"
-    elif model == "gpt-4-8k":
-        deployment = "chatgpt4api"
-    elif model == "gpt-4-32k":
-        deployment = "chatgpt4_32_api"
 
-    openai.api_type = "azure"
-    openai.api_version = "2023-03-15-preview"
 
     # send request to api
     response = openai.ChatCompletion.create(
-        engine=deployment,  # gpt3.5 deployment
+        model="gpt-3.5-turbo",
+        api_key="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",
         messages=[
             {
                 "role": "system",
@@ -90,31 +81,15 @@ def extract_webpage():
     driver.quit()
 
     # set api key, api base and deployment based on user
-    if user == "9":
-        openai.api_key = "921a52075c0749d68f1ad15d1bee0a05"
-        openai.api_base = "https://openai-99.openai.azure.com"
-        if model == "gpt-35":
-            deployment = "gpt3-5"
-        elif model == "gpt-4-8k":
-            deployment = "gpt4-8k"
-        elif model == "gpt-4-32k":
-            deployment = "gpt4-32k"
-    else:
-        openai.api_key = "cfd349e9242e4495bad6aa347a16b0c9"
-        openai.api_base = "https://chatbotapi1.openai.azure.com"
-        if model == "gpt-35":
-            deployment = "chatgptapi"
-        elif model == "gpt-4-8k":
-            deployment = "chatgpt4api"
-        elif model == "gpt-4-32k":
-            deployment = "chatgpt4_32_api"
 
-    openai.api_type = "azure"
-    openai.api_version = "2023-03-15-preview"
+   
+   
+
 
     # send request to api
     response = openai.ChatCompletion.create(
-        engine=deployment,
+         model="gpt-3.5-turbo",
+        api_key="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",
         messages=[
             {
                 "role": "system",
@@ -149,31 +124,14 @@ def translate_webpage():
     driver.quit()
 
     # set api key, api base and deployment based on user
-    if user == "9":
-        openai.api_key = "921a52075c0749d68f1ad15d1bee0a05"
-        openai.api_base = "https://openai-99.openai.azure.com"
-        if model == "gpt-35":
-            deployment = "gpt3-5"
-        elif model == "gpt-4-8k":
-            deployment = "gpt4-8k"
-        elif model == "gpt-4-32k":
-            deployment = "gpt4-32k"
-    else:
-        openai.api_key = "cfd349e9242e4495bad6aa347a16b0c9"
-        openai.api_base = "https://chatbotapi1.openai.azure.com"
-        if model == "gpt-35":
-            deployment = "chatgptapi"
-        elif model == "gpt-4-8k":
-            deployment = "chatgpt4api"
-        elif model == "gpt-4-32k":
-            deployment = "chatgpt4_32_api"
+    
 
-    openai.api_type = "azure"
-    openai.api_version = "2023-03-15-preview"
+    
 
     # send request to api
     response = openai.ChatCompletion.create(
-        engine=deployment,
+        model="gpt-3.5-turbo",
+        api_key="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",
         messages=[
             {
                 "role": "system",
