@@ -8,11 +8,11 @@ Change API keys in /main.py in backend and in /home.jsx before starting<br><br>
 
 
 
-cd to backend folder in D:\whatthehack\src\frontend\backend<br>
+cd to backend folder in D:\whatthehack\src\frontend\backend<br/>
 
-install requirements.txt<br>
+install requirements.txt<br/>
 
-use 'python main.py' to run the backend<br><br>
+use 'python main.py' to run the backend<br/>
 
 
 
