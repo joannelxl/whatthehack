@@ -12,7 +12,7 @@ cd to backend folder in D:\whatthehack\src\frontend\backend<br/>
 
 install requirements.txt<br/>
 
-use 'python main.py' to run the backend<br/>
+use 'python main.py' to run the backend<br/><br>
 
 
 
