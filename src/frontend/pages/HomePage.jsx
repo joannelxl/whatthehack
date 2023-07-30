@@ -89,11 +89,12 @@ function HomePage() {
   return (
     <div className="homepage-content">
       <div style={{
-        height: "100vh", width: "100% ", left: "300px"
+        height: "100vh", width: "100%", left: "300px"
       }}>
         <MainContainer>
           < ChatContainer >
             <MessageList
+              className="messagechat"
               scrollBehavior="smooth"
               typingIndicator={isTyping ? <TypingIndicator content="ChatGPT is typing" /> : null}
             >

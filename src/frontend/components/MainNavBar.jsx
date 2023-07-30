@@ -1,13 +1,14 @@
 import React from "react";
 import { MainNavBarData } from "./MainNavBarData";
 import "./MainNavBar.css";
-import DXClogo from "../assets/dxc-brand.png";
+import DXClogo from '../assets/robot2.jpg';
 
 function MainNavBar() {
   return (
     <div className="sidebar">
       <div className="main-logo-area">
-        <img src={DXClogo} className="img" />
+        <img src={DXClogo} className="img-logo" alt="robot" />
+
       </div>
       <ul className="sidebar-list">
         {MainNavBarData.map((val, key) => {

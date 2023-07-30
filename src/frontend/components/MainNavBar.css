@@ -13,11 +13,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px 95px 0px 0px;
 }
 
-.img {
-  height: 30%;
-  width: 70%;
+.img-logo {
+  height: 100%;
+  border: 8px solid grey;
+  /* border-radius: 100px; */
+  /* padding-top: 10px; */
 }
 
 .sidebar-list {
@@ -71,7 +74,7 @@
 }
 
 .row #title {
-  flex:78%;
+  flex: 78%;
   font-size: medium;
   color: white;
 }

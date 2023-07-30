@@ -14,31 +14,31 @@ export const MainNavBarData = [
     title: "Home",
     link: "home",
   },
-  {
-    icon: <ChatIcon class="svg-icon" />,
-    title: "Chat",
-    link: "chat",
-  },
-  {
-    icon: <SummarizeIcon class="svg-icon" />,
-    title: "Batch Summarization",
-    link: "summarization",
-  },
-  {
-    icon: <FindInPageIcon class="svg-icon" />,
-    title: "Batch Keyword Extraction",
-    link: "keyword",
-  },
-  {
-    icon: <TranslateIcon class="svg-icon" />,
-    title: "Batch Translation",
-    link: "translation",
-  },
-  {
-    icon: <LanguageIcon class="svg-icon" />,
-    title: "Real-Time Web Search / URL Query",
-    link: "websearch",
-  },
+  // {
+  //   icon: <ChatIcon class="svg-icon" />,
+  //   title: "Chat",
+  //   link: "chat",
+  // },
+  // {
+  //   icon: <SummarizeIcon class="svg-icon" />,
+  //   title: "Batch Summarization",
+  //   link: "summarization",
+  // },
+  // {
+  //   icon: <FindInPageIcon class="svg-icon" />,
+  //   title: "Batch Keyword Extraction",
+  //   link: "keyword",
+  // },
+  // {
+  //   icon: <TranslateIcon class="svg-icon" />,
+  //   title: "Batch Translation",
+  //   link: "translation",
+  // },
+  // {
+  //   icon: <LanguageIcon class="svg-icon" />,
+  //   title: "Real-Time Web Search / URL Query",
+  //   link: "websearch",
+  // },
   {
     icon: <LinkIcon class="svg-icon" />,
     title: "Real-Time URL Function-Based Query",
