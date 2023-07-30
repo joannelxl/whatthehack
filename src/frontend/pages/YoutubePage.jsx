@@ -17,10 +17,6 @@ function YoutubePage() {
   const [completedStatus, setCompletedStatus] = useState(false);
   const [loadingStatus, setLoadingStatus] = useState(false);
 
-  const [user, setUser] = useState(
-    window.location.pathname.split("/").pop() === "9" ? "9" : "default"
-  );
-
   // default model is base
   const [selectedModel, setSelectedModel] = useState({
     value: "base",
@@ -41,8 +37,8 @@ function YoutubePage() {
     e.preventDefault();
     submitQuery("http://localhost:5000/youtube", {
       url: url,
-      user: user,
-      model: selectedModel.value,
+      // user: user,
+      // model: selectedModel.value,
       headers: {
         "Access-Control-Allow-Headers": "Content-Type",
         "Content-Type": "application/json",
@@ -90,7 +86,7 @@ function YoutubePage() {
   function submitQuery(path, queryObj) {
     axios.post(path, queryObj).then(
       (reply) => {
-        setResponse(reply.data);
+        setResponse(reply.data.Summary);
         setLoadingStatus(false);
         setCompletedStatus(true);
       },

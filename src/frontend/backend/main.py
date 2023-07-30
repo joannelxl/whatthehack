@@ -12,7 +12,7 @@ from pytube import YouTube
 from googlesearch import search
 import openai
 
-# import whisper
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
@@ -41,24 +41,15 @@ def summarize_webpage():
     driver.quit()
 
     # set api key, api base and deployment based on user
-    if user == "9":
-        openai.api_key = "921a52075c0749d68f1ad15d1bee0a05"
-        openai.api_base = "https://openai-99.openai.azure.com"
-        if model == "gpt-35":
-            deployment = "gpt3-5"
-        elif model == "gpt-4-8k":
-            deployment = "gpt4-8k"
-        elif model == "gpt-4-32k":
-            deployment = "gpt4-32k"
-    else:
-        openai.api_key = "cfd349e9242e4495bad6aa347a16b0c9"
-        openai.api_base = "https://chatbotapi1.openai.azure.com"
-        if model == "gpt-35":
-            deployment = "chatgptapi"
-        elif model == "gpt-4-8k":
-            deployment = "chatgpt4api"
-        elif model == "gpt-4-32k":
-            deployment = "chatgpt4_32_api"
+
+    openai.api_key = "cfd349e9242e4495bad6aa347a16b0c9"
+    openai.api_base = "https://chatbotapi1.openai.azure.com"
+    if model == "gpt-35":
+        deployment = "chatgptapi"
+    elif model == "gpt-4-8k":
+        deployment = "chatgpt4api"
+    elif model == "gpt-4-32k":
+        deployment = "chatgpt4_32_api"
 
     openai.api_type = "azure"
     openai.api_version = "2023-03-15-preview"
@@ -203,25 +194,12 @@ def translate_webpage():
 # yt transcription and summary
 @app.route("/youtube", methods=["GET", "POST"])
 def youtube_transcription():
-    url = request.get_json(force=True)["url"]
-    user = request.get_json(force=True)["user"]
-    model = request.get_json(force=True)["model"]
+    user_query = request.get_json(force=True)["url"]
 
-    # set api key, api base and deployment based on user, using GPT4-8K model
-    if user == "9":
-        openai.api_key = "921a52075c0749d68f1ad15d1bee0a05"
-        openai.api_base = "https://openai-99.openai.azure.com"
-        deployment = "gpt4-8k"
-    else:
-        openai.api_key = "cfd349e9242e4495bad6aa347a16b0c9"
-        openai.api_base = "https://chatbotapi1.openai.azure.com"
-        deployment = "chatgpt4api"
-
-    openai.api_type = "azure"
-    openai.api_version = "2023-03-15-preview"
+    print(f"####### whisperapi ##### userquery: {user_query} ")
 
     # get vid content
-    youtube_vid_content = YouTube(url)
+    youtube_vid_content = YouTube(user_query)
 
     # get audio only
     audio_streams = youtube_vid_content.streams.filter(only_audio=True)
@@ -229,76 +207,48 @@ def youtube_transcription():
     # 0: 48kbps, 1: 128kbps, 2: 160kbps
     audio_stream = audio_streams[2]
 
-    # download audio file
-    audio_stream.download(filename="temp.mp3")
+    audio_file_path = "temp.mp3"
 
-    # transcribe audio and get transcription
-    model = whisper.load_model(model)
-    result = model.transcribe("temp.mp3", fp16=False)
-    transcription = result["text"]
+    # download audio file
+    audio_stream.download(filename=audio_file_path)
+
+    audio_file = open(audio_file_path, "rb")
+
+    # transcribe audio
+    result = openai.Audio.transcribe(
+        api_key=("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"),
+        model="whisper-1",
+        file=audio_file,
+    )
+
+    print("Transcription:\n", result["text"])
+
+    # set messages for GPT API call
+    system_msg = (
+        "You are a helpful assistant who is great at summarizing large amounts of text."
+    )
+    user_msg = "Summarize the following text: " + result["text"]
 
     # summarize the transcription
     response = openai.ChatCompletion.create(
-        engine=deployment,  # gpt4-8k deployment
+        model="gpt-3.5-turbo",
+        api_key="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",
         messages=[
-            {
-                "role": "system",
-                "content": "You are a helpful assistant who is great at summarizing large amounts of text.",
-            },
-            {
-                "role": "user",
-                "content": "Summarize the following text: " + transcription,
-            },
+            {"role": "system", "content": system_msg},
+            {"role": "user", "content": user_msg},
         ],
+        temperature=0,
     )
-    summary = response["choices"][0]["message"]["content"]
+
+    audio_file.close()
 
     # delete audio file
-    os.remove("temp.mp3")
+    os.remove(audio_file_path)
 
-    # get translation to English
-    response = openai.ChatCompletion.create(
-        engine=deployment,  # gpt4-8k deployment
-        messages=[
-            {
-                "role": "system",
-                "content": "You are a helpful assistant who is great at translating large amounts of text.",
-            },
-            {
-                "role": "user",
-                "content": "Translate the following text to English: " + transcription,
-            },
-        ],
-    )
-    eng_translation = response["choices"][0]["message"]["content"]
-
-    # get summary in English
-    response = openai.ChatCompletion.create(
-        engine=deployment,  # gpt4-8k deployment
-        messages=[
-            {
-                "role": "system",
-                "content": "You are a helpful assistant who is great at summarizing large amounts of text.",
-            },
-            {
-                "role": "user",
-                "content": "Summarize the following text: " + eng_translation,
-            },
-        ],
-    )
-    eng_summary = response["choices"][0]["message"]["content"]
-
-    # return content required
-    returner = (
-        "TRANSCRIPTION:\n"
-        + transcription
-        + "\n\nSUMMARY:\n"
-        + summary
-        + "\n\nENGLISH TRANSLATION:\n"
-        + eng_translation
-        + "\n\nENGLISH SUMMARY:\n"
-        + eng_summary
-    )
+    # get response and return in json format
+    reply = response["choices"][0]["message"]["content"]
+    returner = {"Summary": reply}
+    print(returner)
     return jsonify(returner)
 
 
